@@ -1,9 +1,11 @@
 steps:
   - label: "fossa analyze"
     agents:
-      queue: "buildkite-gcp-large"
+      queue: "init"
+      docker: "*"
     command: "./scripts/buildkite/fossa.sh"
   - label: "proto lint"
     agents:
-      queue: "buildkite-gcp-large"
+      queue: "workers"
+      docker: "*"
     command: "make proto-lint"
